@@ -12,3 +12,5 @@ class Calculator {
   // static multiplication() {}
   // static division() {}
 }
+
+export default Calculator;

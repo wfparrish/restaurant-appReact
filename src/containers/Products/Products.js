@@ -5,7 +5,49 @@ class Products extends Component {
   render() {
     return (
       <Auxiliary>
-        <div>Products</div>
+        <div class='section3'>
+          <div>products</div>
+          <div class='product-displays'>
+            p-d1
+            <button
+              onclick='productBox.passDataToUserLog(this.id);'
+              id='addMeBtn1'
+              class='addMeBtn'
+            >
+              Add Me to Cart
+            </button>
+          </div>
+          <div class='product-displays'>
+            p-d2
+            <button
+              onclick='productBox.passDataToUserLog(this.id);'
+              id='addMeBtn2'
+              class='addMeBtn'
+            >
+              Add Me to Cart
+            </button>
+          </div>
+          <div class='product-displays'>
+            p-d3
+            <button
+              onclick='productBox.passDataToUserLog(this.id);'
+              id='addMeBtn3'
+              class='addMeBtn'
+            >
+              Add Me to Cart
+            </button>
+          </div>
+          <div class='product-displays'>
+            p-d4
+            <button
+              onclick='productBox.passDataToUserLog(this.id);'
+              id='addMeBtn4'
+              class='addMeBtn'
+            >
+              Add Me to Cart
+            </button>
+          </div>
+        </div>
       </Auxiliary>
     );
   }

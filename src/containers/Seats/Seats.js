@@ -5,7 +5,14 @@ class Seats extends Component {
   render() {
     return (
       <Auxiliary>
-        <div>Seats</div>
+        <div class='section4'>
+          <div>seats</div>
+          <div class='seat-displays'>Seat 1</div>
+          <div class='seat-displays'>Seat 2</div>
+          <div class='seat-displays'>Seat 3</div>
+          <div class='seat-displays'>Seat 4</div>
+          <div class='seat-displays'>Seat 5</div>
+        </div>{" "}
       </Auxiliary>
     );
   }

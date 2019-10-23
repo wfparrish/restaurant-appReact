@@ -5,7 +5,9 @@ class UserLog extends Component {
   render() {
     return (
       <Auxiliary>
-        <div>User Log</div>
+        <div id='logInfo' class='section5'>
+          <div>user log</div>
+        </div>{" "}
       </Auxiliary>
     );
   }

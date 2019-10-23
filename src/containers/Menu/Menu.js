@@ -5,7 +5,15 @@ class Menu extends Component {
   render() {
     return (
       <Auxiliary>
-        <div>Menu</div>
+        <div class='section2'>
+          <div>menus</div>
+          <div class='menu-displays'>m-d1</div>
+          <div class='menu-displays'>m-d2</div>
+          <div class='menu-displays'>m-d3</div>
+          <div class='menu-displays'>m-d4</div>
+          <div class='menu-displays'>m-d5</div>
+          <div class='menu-displays'>m-d6</div>
+        </div>{" "}
       </Auxiliary>
     );
   }

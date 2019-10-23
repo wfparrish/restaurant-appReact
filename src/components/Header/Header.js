@@ -5,7 +5,9 @@ class Header extends Component {
   render() {
     return (
       <Auxiliary>
-        <div>Header</div>
+        <div class='section1'>
+          <div>header</div>
+        </div>{" "}
       </Auxiliary>
     );
   }
