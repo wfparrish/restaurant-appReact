@@ -1,0 +1,2306 @@
+
+
+
+May 1, 2019
+May 2, 2019
+
+
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="../src/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Restaurant App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <div class="display-holder column left">
+
+      <div class="holder-row">
+        <div class="product-displays">p-d1</div>
+        <div class="product-displays">p-d2</div>
+      </div>
+      <div class="holder-row">
+        <div class="product-displays">p-d3</div>
+        <div class="product-displays">p-d4</div>
+      </div>
+      <div class="holder-row">
+          <div class="product-displays">p-d5</div>
+          <div class="product-displays">p-d6</div>
+        </div>
+
+    </div>
+
+    <div class="seats-holder"></div>
+
+    <!--Keep the names of the classes above for the product display, but redo that code below this code.
+        Rename the code above and create CSS classes for the renamed attributes and properties
+       Use this above pattern with the "display-holder column left" to create the column of menu buttons
+      You are going to have to figure out the reason the buttons are displaying as one column and not two short columns
+      and why when you resize the page the buttons are not inside the column but directly beside the column
+        Place the product-displays in their proper space on the right side of the page
+        Create a div on the bottom of the page for the seats-holder  -->
+
+  </body>
+</html>
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+May 3, 2019
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="../src/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Restaurant App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <div class="display-holder column left">
+
+      <div class="menu-holder-horiz">
+        <div class="menu-displays">m-d1</div>
+        <div class="menu-displays">m-d2</div>
+      </div>
+      <div class="menu-holder-horiz">
+        <div class="menu-displays">m-d3</div>
+        <div class="menu-displays">m-d4</div>
+      </div>
+      <div class="menu-holder-horiz">
+          <div class="menu-displays">m-d5</div>
+          <div class="menu-displays">m-d6</div>
+      </div>
+      <div class="menu-holder-horiz">
+          <div class="menu-displays">m-d7</div>
+      </div>
+
+    </div>
+
+    <div class="display-holder column right">
+
+      <div class="p-displays-container">
+          <div class="display-holder-vert">
+              <div class="product-displays">p-d1</div>
+              <div class="product-displays">p-d2</div>
+            </div>
+            <div class="display-holder-vert">
+                <div class="product-displays">p-d3</div>
+                <div class="product-displays">p-d4</div>
+            </div>
+      </div>
+      
+
+
+
+    <div class="seats-holder-horiz"></div>
+
+    <!--
+      So we need to find a way to take the code we have, turn it into a component,
+    then resize it so there is room for a header and a footer (navigation and seats)
+    This may just be visual presentation or we may need to wrap the current code in a div and go from there
+
+    Look at this flexbox tutorial:
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+  -->
+
+  </body>
+</html>
+	<div class="holder-row">
+        <div class="product-displays">p-d1</div>
+        <div class="product-displays">p-d2</div>
+      </div>
+      <div class="holder-row">
+        <div class="product-displays">p-d3</div>
+        <div class="product-displays">p-d4</div>
+      </div>
+      <div class="holder-row">
+          <div class="product-displays">p-d5</div>
+          <div class="product-displays">p-d6</div>
+        </div>
+
+
+      <div class="holder-column">
+        <div class="menu-displays">m-d1</div>
+        <div class="menu-displays">m-d2</div>
+      </div>
+      <div class="holder-row">
+        <div class="menu-displays">m-d3</div>
+        <div class="menu-displays">m-d4</div>
+      </div>
+      <div class="holder-row">
+          <div class="menu-displays">m-d5</div>
+          <div class="menu-displays">m-d6</div>
+        </div>
+
+    </div>
+	
+	     <div class="holder-row">
+        <div class="seat-displays">s-d1</div>
+        <div class="seat-displays">s-d2</div>
+      </div>
+      <div class="holder-row">
+        <div class="seat-displays">s-d3</div>
+        <div class="seat-displays">s-d4</div>
+      </div>
+      <div class="holder-row">
+          <div class="seat-displays">s-d5</div>
+          <div class="seat-displays">s-d6</div>
+        </div>
+
+    </div>
+	
+	
+	-----------------------------------------------------------
+	
+	
+	html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.column {
+  display: block;
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+
+.left {
+  width: 25%;
+  height: 100%;
+  background-color:#477f8c;
+}
+
+.right {
+  width: 75%;
+  height: 100%;
+  background-color: beige;
+}
+
+.p-displays-container {
+  position: relative;
+  top: 10px;
+  left: 50px;
+
+}
+
+.product-displays {
+  position: relative;
+  display: inline-block;
+  height: 202px;
+  width: 300px;
+  background-color: lightblue;
+  border: 2px;
+  border-style: solid;
+  border-color: blue;
+  padding: 3.5%;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.menu-displays {
+  position: relative;
+  top: 10px;
+  left: 30px;
+  display: inline-block;
+  height: 30px;
+  width: 200px;
+  background-color: lightblue;
+  border: 2px;
+  border-style: solid;
+  border-color: blue;
+  padding: 3.5%;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+
+-------------------------------------------------------------
+
+May 4,5 2019
+	
+Final code of v1 of app page:
+
+ <div class="display-holder column left">
+
+      <div class="menu-holder-horiz">
+        <div class="menu-displays">m-d1</div>
+        <div class="menu-displays">m-d2</div>
+      </div>
+      <div class="menu-holder-horiz">
+        <div class="menu-displays">m-d3</div>
+        <div class="menu-displays">m-d4</div>
+      </div>
+      <div class="menu-holder-horiz">
+          <div class="menu-displays">m-d5</div>
+          <div class="menu-displays">m-d6</div>
+      </div>
+      <div class="menu-holder-horiz">
+          <div class="menu-displays">m-d7</div>
+      </div>
+
+    </div>
+
+    <div class="display-holder column right">
+
+      <div class="p-displays-container">
+          <div class="display-holder-vert">
+              <div class="product-displays">p-d1</div>
+              <div class="product-displays">p-d2</div>
+            </div>
+            <div class="display-holder-vert">
+                <div class="product-displays">p-d3</div>
+                <div class="product-displays">p-d4</div>
+            </div>
+      </div>
+      
+
+    <div class="seats-holder-horiz"></div>
+
+    <!--
+      You used the FCC tutorial to study flexbox and grid. Grid is the best option, with sprinkles of flexbox
+      
+      1. Complete the HTML for the seats portion of the layout
+      
+      2. Revise the code using CSS Grid and CSS Flexbox
+        Use the last FCC CSS Grid exercise to see how to apply the Grid 
+
+
+      Use grid-template-areas: 
+            "header header header"
+            "menus content content"
+            "footer footer footer"
+
+            in this fashion (or something similar):
+
+            header header header
+            menus products products
+            seats seats seats
+  -->
+
+  Final code CSS of the v1 app page:
+
+  html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.column {
+  display: block;
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+
+.left {
+  width: 25%;
+  height: 100%;
+  background-color:#477f8c;
+}
+
+.right {
+  width: 75%;
+  height: 100%;
+  background-color: beige;
+}
+
+.p-displays-container {
+  position: relative;
+  top: 10px;
+  left: 50px;
+
+}
+
+.product-displays {
+  position: relative;
+  display: inline-block;
+  height: 202px;
+  width: 300px;
+  background-color: lightblue;
+  border: 2px;
+  border-style: solid;
+  border-color: blue;
+  padding: 3.5%;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.menu-displays {
+  position: relative;
+  top: 10px;
+  left: 30px;
+  display: inline-block;
+  height: 30px;
+  width: 200px;
+  background-color: lightblue;
+  border: 2px;
+  border-style: solid;
+  border-color: blue;
+  padding: 3.5%;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+
+----------------------------------------------------------------------------------------------------------
+May 6th, 2019
+
+We divided the grid into an area template:
+
+https://learn.freecodecamp.org/responsive-web-design/css-grid/divide-the-grid-into-an-area-template
+You can group cells of your grid together into an area and give the area a custom name. Do this by using grid-template-areas on the container like this:
+
+grid-template-areas:
+  "header header header"
+  "advert content content"
+  "footer footer footer";
+The code above merges the top three cells together into an area named header, the bottom three cells into a footer area, and it makes two areas in the middle row; advert and content.
+	
+-----------------------------------------------------------------------------------------------------------
+	
+July 14, 2019
+
+What I would like to accomplish
+
+1. Implement Navigation between the menus. When a category is selected, the products component should swap out the old displays for the new ones
+
+2. Create a products class so we can add, subtract, multiply, and divide quantities of the products selected and display the information.
+This information is part of the state of the application
+
+For instance, everytime I click the burger button, I could be adding a value to an array that stores each item 
+
+3. Create a seats class 
+4. Create a menus class
+5. Create a user log class
+
+The user log class would display selected state data and would
+perform some simple calculations
+
+6. Create state variables to handle where in the ordering process the user is
+
+7. Read these tutorials and articles:
+
+https://gomakethings.com/rendering-dynamic-and-conditional-templates-with-vanilla-javascript/
+
+https://gomakethings.com/components-state-and-vanilla-javascript/
+
+https://gomakethings.com/automatically-re-rendering-an-element-when-its-state-changes-with-vanilla-javascript/
+
+-----------------------------------------------------------------
+July 14, 2019
+
+So to simplify the process and test the passing of information:
+
+Create p-d class with constructor
+With each click of any of the product-displays items, we should:
+
+1. Create a new p-d instance
+2. Store the state of the instance in an array
+3. Pass the values of the array to the itemList() method of the userLog element
+4. display the number of product-displays items we selected in the userlog
+5. display the sum total of all items selected
+
+class P-d {
+  constructor(id, itemType) {
+    this.id = 'P-d' + id;
+    this.itemType = itemType;
+  }
+}
+	
+Currently the product-displays items are childnodes of one of the section elements. With each click of product-display elements maybe we could store some of the state of the app in 
+the section element that is the parent to the childnodes
+
+We would then need to find a way to pass that data to the user-log
+
+class userLog {
+  constructor(logId, seatNum) {
+  this.logId = logId;
+  this.seatNum = seatNum;
+  this.itemList = [];
+  }
+
+  itemTally(this.itemList) {
+    return this.itemList.length;
+  }
+}
+	
+
+-----------------------------------------------------------------
+
+July 15, 2019
+
+Altered the p-d1 button. It sends data to the UserLog
+
+Learned that I cannot apply a click event to an array(or array-like collection) of objects. I need to iterate through and
+apply the click event to each element in the array.
+
+Also that to call the DOM is just one of the things you can do.
+You can alter the DOM when you call it by assigning the object new values, or you can use what you called by putting what was returned into a variable.
+
+ex. Incorrect syntax
+
+document.getElementsByClassName("classname");
+
+How would you use this collection of objects? It is just floating in space
+
+ex. Correct syntax
+
+document.getElementById("addMeBtn").addEventListener("click", function(){
+document.getElementById("logInfo").innerHTML = "Wasn't that some bomb-ass food? See ya soon bitch!";
+
+
+ex. Correct syntax
+
+let classname = document.getElementsByClassName("classname");
+
+Now it can be used by JavaScript, although actually it is still not a JS array. That is why we can't use an array method to loop through this collection. classname is a live HTMLCollection of found elements
+
+-----------------------------------------------------------------------------------------------------
+
+July 16, 2019
+
+Realized the 
+
+function passDataToUserLog() {
+  document.getElementById("logInfo").innerHTML =
+    "<p>Wasn't that some bomb-ass food? See ya soon bitch!</p>";
+}
+
+could be put inside the UserLog object, or it could be a part of a totally different object, maybe the Check object. 
+
+Create a Check object that handles the state of the user's session for the application
+
+---------------------------------------------------------------------------------
+
+July 16, 2019
+
+https://medium.com/frontend-fun/js-vanilla-script-spa-1b29b43ea475
+
+This IIFE is invoked inside the init() function of the Router object:
+
+(function(scope, r) {
+      window.addEventListener("hashchange", function(e) {
+        scope.hasChanged(scope, r);
+      });
+    })(this, r);
+
+with two parameter values
+ 1. this(here the Router object, I think)
+ 2. r, an array of routes
+
+*********************************************
+I learned that local storage is persistent storage. It is kept in the browser indefinitely, and it can act as a global store of data for a program.
+
+---------------------------------------------
+
+July 17, 2019 
+ 
+I learned about the JS Runtime Environment and what it is composed of:
+
+1. JS Engine - synchronous
+2. event loop - monitors call stack and callback queue
+3. call stack - for functions, including the main file. Holds frame stacks
+4. memory heap - passed the variables in                     functions and objects. Large relatively unstructured region of memory
+5. callback queue - holds the asynchronous calls that are returned in the runtime environment. the event loop tells the empty call stack about the callbacks in the callback queue
+6. Web APIs - asynchronous
+            - examples include the DOM and AJAX
+
+---------------------------------------------
+
+July 18, 2019
+
+Worked on the LinkedList CH5 of JSdatastructandalgos pdf. 
+Realized the LinkedList must be thought of as a structure similar to an array, 
+but with different functionality. The nodes can be anything.
+
+The LinkedList is created with a constructor function
+
+---------------------------------------------------------------
+Q.
+
+True or False?
+
+Removal of a node(element) from the LinkedList will create a lost element. 
+This element will be removed from memory by the garbage collector.
+
+A. True
+
+-----------------------------------------------------------------
+Q.
+
+True or False?
+
+Linked lists are stored contiguously in memory
+
+A. False
+
+Unlike with arrays, data is not stored contiguously. 
+
+----------------------------------------------------------------------------------
+
+July 20, 2019
+
+1.
+
+I learned console.log can take more than one argument. 
+This is useful for debugging in the console when you need to see full information 
+on a parameter and you want to include some text with the parameter in the console. 
+
+2.
+
+When you get an error in the console, the text with the pink background is the 
+call stack. If you start from the bottom you can discern exactly where the code 
+went at each step and what threw the error at the end
+
+3. 
+
+When you have lots of elements to store and you need to add them or remove them 
+from specific locations in the data structure quickly, use a linked list. 
+Since the elements are not stored contiguously it is inexpensive to perform 
+addition or removal. 
+You don't have to shift every element in the structure, 
+you just change the pointers' values
+
+4.
+
+Whether you call making calls to a RESTful API to retrieve data or you are searching
+your file system, you are still performing actions best handled by asynchronous code. 
+These operations take more time and will affect the performance of your app if you
+run them on the main thread
+
+-------------------------------------------------------------------------------------------------------------------
+
+August 5, 2019
+
+Returning from the land of:
+
+0. From July 16th to July 26th. Worked on TDD Udemy tutorial. 
+n-1. July 27th and 28th: Creating the complete new stack of flash cards
+n. August 3rd and 4th: Reviewing 80% of the flashcards for the first time
+
+What I learned that is applicable to this effort:
+
+Syntax from the cards: I need to memorize much more, but I see how the structure of JS ties around itself
+TDD: it should be applied to each method that I have. I should have a test for every method that I write
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Reviewed the Angular Heroes tutorial. Whew! Angular is a bulky piece of work. Very little of what I looked
+at was recognizable as vanilla JS. And the jargon is extremely dense. They speak of manipulating the DOM using
+Angular, but the DOM seems further away than it does with React. 
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Issue: CSS not properly displaying the product boxes in .section3
+
+Possible Solution:
+
+Add 
+display: flex to section3 
+
+and see what happens
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+I used the Udemy TDD tutorial and added Jasmine to the app. I can now begin to develop tests for my methods
+I should write a test for every method, it doesn't matter that I may change all the functionality in the future
+
+------------------------------------------------------------------------------------------------------------------
+
+August 6th, 2019
+
+ToDoList(created at the start of the session)
+
+1. Change the name of the divs from .section to something recognizable
+2. Write a test for the passDataToUserLog method
+3. Correct the CSS for the application so that the product div is properly formatted
+
+I didn't do anything in this TODO list, because by starting to write the passDataToUserLog test, I realized
+I was more interested in the state of the UserLog display. How could I change it? And would JS respond to the 
+changes? 
+
+I set up a new method that displays a message in the UserLog div when the application starts
+function displayDataInUserLog() {}
+
+The method is called by the onload attribute of the <body> tag
+
+I could not find a way to call a similar "onload" method for a div, and there doesn't appear to be one
+
+Now the application toggles from the initial message to the second message with a list of items they ate
+
+I need to write tests for both of these methods, I started the test for the first.
+
+I still need to figure out how to reach the div through travesing the DOM, I think it will be key to writing the 
+tests.
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+August 7, 2019 (150 solid minutes of coding)
+
+Multiple attempts at cracking the Jasmine egg.
+-Realized I needed to import index.js to make some of my code make sense. 
+-Thinking I should create a seperate file for UserLog, just like the tutorial for Calculator
+-Still trying to figure out if Jasmine has access to my HTML initial state. If I call a document element in Jasmine
+ and assign it a value, this cannot be the same object that is displaying in the browser window. So what and where is this object?
+-How do I connect my UserLog and my div that displays information? I would like to change the state by changing the values in an instance of the UserLog class
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+1. What does the UserLog need?
+
+It needs a function that when called assigns a value to the div that represents the UserLog component
+Right now the functions that perform this are global:
+-function passDataToUserLog() {
+-function displayDataInUserLog() {
+
+I want them to be methods of the UserLog class, not the Window object. I will probably need to rename them
+
+
+
+2. What does testing need right now?
+
+I need to break my original test IDEA down into something clearer. What am I trying to do? Now that I know I want to call the functions as methods from the UserLog, I realize my it statement in the first test is actually like a clue:
+
+ it("should pass data to the UserLog component")
+
+ This isnt what my app currently does. It just calls functions to change the HTML in a component that has no relation to a UserLog instance. I need to find a way to...
+
+ ------------------------------------------------------------------------------------------------------------------
+
+ August 8, 2019
+
+ ...create a brain for the application
+ I will call this brain Calculator. It will contain the functionality that so far has been connected with 
+ the index.js file and the UserLog.
+
+ Started Calculator class code and moved the functions correctly. 
+
+-------------------------------------------------------------------------------------------------------------------
+
+August 9, 2019
+
+Some of the objects that I think I need to create:
+
+class menu {
+  constructor() {
+    this.menuName = menuName;
+  }
+}
+
+class foodItem {
+  constructor() {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+  }
+}
+
+class table {
+  constructor() {
+    this.partyId = partyId;
+    this.partySize = partySize;
+    this.seatArray = seatArray;     //will hold the seat info for each diner, and can be the basis of checks
+  }
+}
+
+class seat {
+  constructor() {
+    this.seatId = seatId;
+  }
+}
+
+class check {
+  constructor() {
+    this.checkNum = checkNum;
+    this.itemArray = itemArray;
+    this.seatList = seatList;
+    this.total = total;
+    this.status = status  //is the check open or closed?
+  }
+}
+
+class server {
+  constructor() {
+
+  }
+}
+
+class tableOrderQueueForChefs {     //a list of tableOrder(s) 
+  constructor() {     
+
+  }
+}
+
+class tableOrder {
+  constructor() {
+
+  }
+}
+
+class eightySixList {
+  constructor() {
+
+  }
+}
+
+class voids {
+  constructor() {
+
+  }
+}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+TODO:
+
+Create some static foodItems and push() them to an array in UserLog
+Sum the total for each of the items, and create a running tally of how many of each items were ordered
+Implement the Burger class as a form with checkboxes. Each toggle will also add or subtract from the price of the burger in the UserLog
+
+ex.
+
+class Burger {
+  constructor() {
+    this.price = price;
+    this.temperature = '';
+    this.cheese = false;
+    this.tomato = false;
+    this.lettuce = false;
+    this.onion = false;
+    this.ketchup = false;
+    this.mustard = false;
+    this.mayo = false;
+    this.bacon = false;
+    this.pickle = false;
+    
+  }
+}
+
+class Fries {
+  constructor() {
+    this.price = price;
+    this.size = '';
+  }
+}
+
+class Milkshake {
+  constructor() {
+    this.price = price;
+    this.size = '';
+    this.flavor = '';
+  }
+}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+For each seat there should be an Order.
+
+class Order {  //an order is a one-time request. One guest may create multiple orders in one dining session
+  this.orderId = orderId;
+  this.seatNum = seatNum;
+  this.items = [];
+
+}
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+I need to think about application structure. Right now files are everywhere, and nothing is grouped according to nesting and functionality. I would like to change that. 
+
+-------------------------------------------------------------------------------------------------------------------
+
+August 10, 2019
+
+So I have objects that I have created in the menu.js file for menu items. I would like to pass instances of those items to the UserLog. I would then like to call a method from the UserLog that renders the data. 
+
+So what I want UserLog to do is render data, not calculate it. The calculation of the data should be completed before the component receives the data to render
+
+Currently the userLog instance is holding the information it received from object order1. 
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+By the end of the day I realized what two tasks I had been trying to accomplish with my code:
+
+1. Creating a setState method for the UserLog to have it's state set by a parent or sibling object
+2. Creating a render method for the UserLog to display it's current state
+
+But I encountered some issues that I am still in the process of resolving:
+
+1. How to use the state of the UserLog. Without an event to push the program ahead, nothing happens. What kind of event can I trigger to make UserLog use a setState method? I need it to feel natural to the user.
+
+2. The passDataToUserLog method is populated by an array from the Calculator object's constructor. This constructor gets it's information from the Order object. I need to use the passDataToUserLog method, the myArr1 array, and portions of the order.js code to create the interface for the user to enter data through UI elements like checkboxes or forms.
+
+3. How should I create my data store to populate the application?
+
+4. Is the application missing what could be called a "main thread". If I wanted to create a script file to run my
+program, what would that look like?
+
+
+I also realized I will need to begin to create more component code in JavaScript, and work on pulling in input from the user. The input from the user may be the solution to issue #1, as this will create events. 
+
+I guess I wonder, what should my program be doing when no one is entering data or creating events?
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Q.
+4. Is the application missing what could be called a "main thread". If I wanted to create a script file to run my program, what would that look like?
+
+A.
+Ha ha, realized another use of the ordering of the script tag, besides being able to create components. The <script> tag allows the programmer to control the flow of the program, making the program run methods or perform any assigned tasks that the developer feels like creating a tag for
+
+<script></script>
+<script></script>
+<script></script>
+<script></script>
+<script></script>
+<script></script>...
+
+Each of these script tags can be filled with variable assignments and method calls that run IN ORDER!
+
+So if I want to spend time creating tables with one tag, then loading the tables with seats in another,  then finally ordering items for each person in a different tag, its all possible. 
+
+The script tag does exactly what it claims to do, execute scripts using JS
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+August 12, 2019
+
+Started the TDD tutorial again in order to start writing tests.
+I was having a problem getting the tests to pass. I kept getting this error:
+
+TypeError: Cannot set property 'innerHTML' of null
+
+After searching a WHILE I found this:
+
+https://stackoverflow.com/questions/40267775/tesing-window-onload-js-function-using-jasmine-framework?rq=1
+
+based on this google query: 
+onload null jasmine
+
+It looks like in order to effectively test MY application I need to finish the TDD tutorial
+
+---------------------------------------------------------------------------------------------------------------------
+
+August 18, 2019
+
+Returning to my code from 6 days. In that time I covered:
+1. material from the TDD Udemy course
+2. researched the methods of Jasmine
+3. completed 80% of my JavaScript flashcard stack
+
+I realized looking at the UserLog script that an instance of the UserLog class does not get initialized a value from itemTally() method. This could be the reason for the error from 8/12/2019. 
+
+I just recalled that my original idea was to store multiple instances of the Order class for each check, in an array inside an instance of UserLog. This was so that the same time table could place multiple rounds of orders and each round would be stored seperately
+
+I have successfully connected the userLog instance in the UserLog class to the data from the order instance from the Order class. I must now connect the instance of the userLog to the HTML
+
+I have successfully connected the instance of the userLog to the HTML
+
+I found this comment in the UserLog:
+
+    "//We pass data to the UserLog, which is storing the state of the user's check data. The plan is to create a render method in the User Log"
+
+Initially I thought this was a good idea, as I would then be able to provide the user the ability to see the UserLog when desired. But why wouldn't they want to see their userLog instance continuously? But for the business it might be better for sales to hide the log... maybe... maybe not...  Hmmm...
+
+We moved the creation of myArr1 from the constructor of the calculator to the passDataToUserLog() method, 
+which makes more sense. It also places the state of the application here.
+
+Previously, on 8/12/2019 we had created a clear the userLog method. We uncommented the method. Now the userLog is cleared, and each push of the AddMeToCart button populates the userLog instance, then clears it
+
+The next steps for the program development:
+-create a test for the creation of the userLog
+-create a test for the population of the div by the userLog component
+-test the data passed to make sure it is correct and what is expected
+-spread the functionality to each of the buttons on the page. I need to determine each button's relationship to the UserLog and the Calculator classes.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+The userLog instances would be stored in the Check class instance
+They could be stored in an array
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+It appears the tests run before the userLog gets populated. The console keeps complaining that the innerHTML is null. Have I connected the userLog to the view?
+
+-----------------------------------------------------------------------------------------------------------
+
+August 19, 2019
+
+
+I have successfully transfered an array of objects between my created class object instances. This movement
+of data is shown by a modification to the DOM and the HTML associated with the objects. Essentially I am treating divs like Angular view files and presenting data from them. 
+
+Don't confuse the HTML and what you would like the view to do, with the JS and what some of these
+objects you are creating are. The JS is independent of the HTML. The view displays what it is told to display by either the initial HTML or the DOM. If I choose to use the DOM, I could manipulate any HTML element with any DOM element. There is not a one-to-one link between a view and a class like in Angular. Any JS object can manipulate any HTML element. There is no framework to complain.
+
+So just because in the view there is a box called products, and in the code I have a products file, the 
+relationship is exclusively logical in nature. There is nothing in the syntax that couples these objects, 
+outside of the DOM methods that I may choose to call from my JS.
+
+I realized this was all important to understand when I started to create the products.js file. What I want from the HTML (the view) and the JS (the logic) are two totally seperate things.
+
+
+products (the HTML/CSS)
+1. I would like each productDisplay div inside the products div to have a picture of their particular menu item 
+2. I would like the products div to have styling and element positioning that is controlled by the CSS
+3. There should be a button that when clicked, triggers a method in the DOM
+
+products (the JS)
+1. I would like an instance of products to hold an array of product displays, dynamically populated in the product view by the administrative user
+2. I would like each instance of product display to:
+
+ a. Hold an instance object from the menu
+ b. Be able to store the value of the instance (in an array)
+ c. Use getters and setters to pass data in and out about menu items
+ d. Take in data from parameters to set the type of object in the display
+      ex. I could show:
+          burger in p-d1,
+          fries in p-d2,
+          shake in p-d3...
+
+        ...or each p-d could just have the same thing, all burgers. 
+    The point is whatever is in there is dynamically populated by the application's administrative user
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+So the Products table should be populated dynamically based on the admin's whim. the Products object will
+hold an array of Product Displays in an array called viewBuilder. viewBuilder will be used to dynamically fill the div 'products' with 'productDisplays' instances
+
+ProductDisplays will hold instances of menuItems
+Every productDisplays instance will have a button that calls the passDataToUserLog() method
+
+viewBuilder as a method or an array is a good idea. 
+
+If it is a method, it sounds active, like it pulls in pieces and puts together the view
+If it is an array, it sounds passive, like the view's parts are passed to it for state storage
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   
+
+I have created a seats.js file too, using the idea of the viewBuilder array.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+I should be able to use the Order class to start to create ProductDisplay methods. We should be using parts from the order.js file
+
+ex. 
+single instances of desired Menu items should be connected one-to-one to ProductDisplay instances, and be created when the passToUserLog() method is triggered. Something like that.
+
+The Order class should be modified to serve as a data store for all orders placed. Could use a 2D array, storing each collection of items as an array in an allOrders array
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Also take care not to confuse coding conventions with syntax for: 
+  a. JS property names
+  b. HTML attributes
+  c. DOM properties for elements and nodes
+  
+For instance, the key 'id' has different meanings and functionality depending if it is an HTML attribute, part of a DOM element or node, or used as a property key in a JS object. 
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Commit this code to GitHub 
+
+-----------------------------------------------------------------------------------------------------------
+
+August 20, 2019
+
+Commited my code to GitHub
+
+So the calc.passDataToUserLog() is going to become a method of the products instance
+
+in the HTML
+productBox.passDataToUserLog(this.id)
+
+in the JS
+ passDataToUserLog(id) {
+    this.selectedProdDisp = document.getElementById(id);
+    console.log(this.selectedProdDisp);
+    this.myArrProducts.push(this.selectedProdDisp);
+    this.viewBuilder = this.myArrProducts;
+    console.log(productBox.viewBuilder);
+  }
+
+I am getting some output, and the viewBuilder array grows each time I push any of the Add Me to Cart buttons. 
+
+  ex. Clicked the buttons 6 times on the page:
+
+Output ===>
+(6) [null, button#addMeBtn1.addMeBtn, button#addMeBtn2.addMeBtn, button#addMeBtn1.addMeBtn, button#addMeBtn1.addMeBtn, button#addMeBtn2.addMeBtn]
+
+These are the buttons as DOM nodes. I can view all their individual attributes in the console.
+
+But I am sending the wrong object. I don't need to send the button, I want to send the product display holding the menu item I want to access. Ultimately I want that array to have as output:
+
+(6) [null, burger1, fries1, burger1, burger1, fries1]
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+In the project.js file I have a commented out statement that will create an array filled with burgers
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+ToDoList:
+
+Rewrite the passDataToUserLog() method to fill the viewBuilder array with menu objects
+Pass the objects in the viewBuilder to the UserLog
+
+-----------------------------------------------------------------------------------------------------------
+
+August 21, 2019
+
+
+Very quickly I was able to begin to send the data to the userLog instance. I wrapped the menu items in productDisplay instances by using a switch statement. The id of the button is used to determine what menu item is wrapped in the display. I needed to figure out how to get the data out though, and I found these solutions online.
+
+1.
+
+    userLog.itemList.forEach(obj => {
+        Object.keys(obj).forEach(key => {
+          console.log("key : " + key + " - value : " + obj[key].name);
+        });
+      });
+
+2.
+      JSON.stringify(userLog.itemList) +
+
+Neither one was correct. This is what I am currently using:
+
+3.
+
+  userLog.itemList.map(item => {
+        return item.menuItem.name;
+      }) +
+
+Currently the data is in an array. Every time I push the Add Me to Cart buttons, a new productDisplay instance gets added to an array. That array is then sent over to the userLog.itemArray array, and the entire array is displayed. I need to find a way to display each item seperately on a new line, along with 
+the price of each item.
+
+Issues:
+Currently the passDataToUserLog() is long and unweildy. It also does more than one thing, which is a no-no for pure functions. It's more like a script. I would like to find a way to simplify it, maybe break it into multiple functions, all chained together so that the single button push still has the same effect for the user of the application. 
+
+----------------------------------------------------------------------------------------------------------
+
+August 22, 2019
+
+Instead of splitting the array, I decided to use the nature of HTML divs(block elements) to get menu item names to appear on new lines. 
+
+I need to create a new div with each click, instead of sending an array
+
+I found this solution online and decided to drop it in and see what happened
+https://stackoverflow.com/questions/5886144/create-divs-from-array-elements
+This is way off, but the elements do print line-by-line. 
+
+
+    for (let stuff in userLog) {
+      let newElement = document.createElement("div");
+      newElement.id = userLog[stuff];
+      newElement.innerHTML = userLog[stuff];
+      document.body.appendChild(newElement);
+    }
+
+The Output:
+
+1
+1
+I am the UserLog for seat 1
+[object Object]
+1
+1
+I am the UserLog for seat 1
+[object Object],[object Object]
+1
+1
+I am the UserLog for seat 1
+[object Object],[object Object],[object Object]
+
+I need to learn to traverse the dom correctly to get the correct output in the appropriate space, but this
+appears to be a better solution than trying to manipulate the array. Play with this idea.
+
+One benefit seems to be having divs associated with the output. That could be useful. 
+
+----------------------------------------------------------------------------------------------------------
+August 23, 2019
+
+So I have two possible directions
+
+1.
+
+
+
+      userLog.itemList.map(item => {
+        let itemView = document.createElement("div");
+        itemView.id = "itemView";
+        itemView.innerText = item.menuItem.name;
+        console.log(itemView);
+        return itemView;
+      })
+
+2.
+
+      userLog.itemList.map(item => {
+        let itemView = document.createElement("div");
+        itemView.id = "itemView";
+        itemView.innerText = item.menuItem.name;
+        console.log(itemView);
+        return itemView;
+
+The first returns an array filled with names of food and does not modify the DOM
+The second returns multiple array-like objects like so:
+
+[object HTMLDivElement]
+
+and does modify the DOM, adding a div each time the button is clicked
+
+I need to combine the two of these things, so that I see burgers, fries, and milkshake, the DOM gets modified, AND each element displays on its own row
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Actually 1. is the correct solution with one modification, to:
+
+return itemView.innerText;
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+I am starting to think that the problem goes back to the inheritance of certain CSS properties in the div.
+If you think about it, why do I think that there could be a new line as I imagine it in the userLog? The userLog div is not the Window object. It is just an element. And the page is already sliced up into grids. I need to rethink how I will display the output as I wish.
+
+Maybe I could use a table?
+
+----------------------------------------------------------------------------------------------------------
+
+August 24, 2019
+
+Going to deal with the rendering issue later, as I feel it is a CSS issue to be resolved once I have additional data to present along with the name of the item send to the userLog.
+
+Using a table is a good idea, but so is using custom divs
+
+What I want to do is go back and get some data to present alongside the name. I would like to address the calculation of price. For that we are going to implement the Calculator class. Previously our Calculator class performed our two main methods we are currently using:
+
+passDataToUserLog()
+displayDataInUserLog()
+
+passDataToUserLog() - is part of the Calculator class. This frees us to use the Calculator class to exclusively handle mathmatical processes. 
+
+displayDataInUserLog() - I need to either use or discard this method
+If I discard I need to modify this line in the index.html file:
+
+  <body onload="calc.displayDataInUserLog()">
+
+If I keep it I need to decide what JS object should call the method. What class do I want associated with the method, which is called with the loading of the document? Products? Orders? UserLog? Or a totally different class?
+
+For now I going to keep the functionality and place it in the Products class. 
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+I realized I never addressed the Order issue. That is, my collection returned as an array to viewBuilder should ultimately be used to populate an Order object.
+
+The Products() class should be initialized with this object  
+
+     this.myArr0 = [
+       order0.orderItems[0].name,
+       order0.orderItems[1].name,
+       order0.orderItems[2].name
+     ];
+
+
+
+The order class should be modified to serve as a data store for all orders placed. Could use a 2D array, storing each collection of items as an array in an allOrders array
+
+So the Order class needs to be developed so that we actually gather an order (using the viewBuilder array)to be added to a collection of orders. This is going to start to shape the user's experience of the application, namely, how "thick" the application feels, how many levels they have to dig through to place an order. Even though it is an SPA, there is still the need to pass through processes inside the app, and its that handling of the processing that at times is not without its constraints on the programmer. Sometimes you have to make an implementation choice which shapes UX and UI
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Need to solve the CSS issue with the block elements not showing on individual lines, since I have confirmed that <div> elements are being added to the DOM with each click of the buttons
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+So the Order class is actually going to collect the items in the viewBuilder and group them in an array (thus a 2D array).
+The Order class will then send the order to the "kitchen"
+
+So instead of the messages I currently have describing a situation where the UserLog view holds a check of items, here we intend to use the Order class to send the data that will be held by the UserLog instance as one order. This makes sense and solves part of the UI/UX issue. 
+
+In one motion we gather an order and then send it.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+So I am close to what I want to implement. When I click the Send Order button, it does send the values in the viewBuilder array. If I have sent the order, I would like a new order item to be started if I start ordering more items. This is not what is happening. The new items are being added to the array. 
+
+If however, after I have built an order and sent the order using the button, if I press Send Order again immediately, the program does what I want, creating a 2D array with multiple orders inside.
+
+Also we need to fix the Order id increment method. I want to see that it is assigning id's to individual orders. Right now I am still hard-coding the ids. I would like to see the order Id in the console if that is possible, inside the 2D array for the check. 
+
+I commented this method out of the constructor for Order. It could be good or bad, who knows?
+    //this.orderId = Order.incrementId();
+
+Also the order object in the Products class is a property of the Products class, it was not created independent of the Products( and the productBox instance)
+
+Could it be to solve this problem it would be easier if I created the seats and the check items and passed one of them the order information?
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+I also need to fix the floating point problem. My calculations have too many zeroes
+
+---------------------------------------------------------------------------------------------------------------------------
+August 25, 2019
+
+Falling into the wabbit hole...
+
+I see a few things I could do at a glance
+
+1. Fix the createOrder() call so that .push method is creating a 2D array 100% of the time when we click Send Order button.
+   We have to take the logic that is creating the "double order error" with the Send Order button, keep it, but push it back so that it happens when we wish it to, not later and as a logic bug.
+2. Break the passDataToUserLog() method into a collection of smaller methods. The code is becoming spaghetti
+3. Figure out the relationship of the Seats, Check, Table, Products and UserLog logic and view
+
+So take the output from createOrder() and start to populate an array. Each time you press the Send Order button populate this new array. You will now have your 2D array. Maybe it will be part of an OrderTempDB class I need to create, something like that. Because there is a difference between an Order and an array of Orders. I think I was trying to have the Order class hold ITSELF in an array... hahaha 
+
+The simple solution is to create a data store for the Order objects (OrderDB)
+
+create a script tag in index.html for orderDB.js
+
+tempDB = new OrderDB(); //in the orderDB.js file
+tempDB.growDB(guestOrder.orderItems); //in products.js method call
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+We have placed a debugger statement in the passDataToUserLog() method to begin tracking down the magic multiplying of the product displays
+
+But the debugger can only test one function and it's cycle around the event loop.
+If I want to test more than one cycle I need to write a script that calls events in the DOM that mimic the click events and their output.
+
+Create a test.js file that performs three clicks each on the burger button and the Send Order button
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Here is where the error is occurring:
+
+console.log(tempDB.arrDB);
+1st Output ===> []
+					0: Array(1)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						length: 1
+						__proto__: Array(0)
+					length: 1
+					__proto__: Array(0)
+2nd Output ===>
+
+console.log("In the tempDB.arrDB: " + tempDB.arrDB);
+1st Output ===> In the tempDB.arrDB: 
+2nd Output ===> In the tempDB.arrDB: [object Object],[object Object]
+
+console.log("In the tempDB.arrDB: " + JSON.stringify(tempDB.arrDB));
+1st Output ===> In the tempDB.arrDB: []
+2nd Output ===> In the tempDB.arrDB: [
+										[
+										{"id":"P-d1","menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										},
+									    {"id":"P-d2","menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										}
+										]
+									 ]
+
+----------------------------------------------------------------------------------------------------
+
+By my original logic and by the output from:
+
+console.log("In the tempDB.arrDB: " + tempDB.arrDB);
+1st Output ===> In the tempDB.arrDB:    <=== nothing there!
+
+and 
+
+console.log("In the tempDB.arrDB: " + JSON.stringify(tempDB.arrDB));
+1st Output ===> In the tempDB.arrDB: []   <=== looks like an empty array to me!
+
+I thought there was nothing in 
+tempDB.arrDB
+
+until I ran:
+console.log(tempDB.arrDB)
+
+and got this output: []   <===this does not mean "empty array" because the stuff below was inside it!!!
+					0: Array(1)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						length: 1
+						__proto__: Array(0)
+					length: 1
+					__proto__: Array(0)
+
+Q. How does tempDB.arrDB have any value WHATSOEVER?
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Here is most of the code to decipher the console's output
+	
+First pass through the code. Compares the output between the just JS variable or method in console.log,
+ "a string of text" + JS variable or method in the console, and "a string of text" + JSON.stringify() output
+
+LINE 1
+
+console.log(localViewBuilder);
+
+1st Output ===>
+
+
+[ProductDisplay]
+0: ProductDisplay {id: "P-d1", menuItem: Burger}
+length: 1
+__proto__: Array(0)
+
+2nd Output ===>
+
+(2) [ProductDisplay, ProductDisplay]
+0: ProductDisplay {id: "P-d1", menuItem: Burger}
+1: ProductDisplay {id: "P-d2", menuItem: Burger}
+length: 2
+__proto__: Array(0)
+
+**************************************************************************************************************************
+
+console.log("locaViewBuilder: " + localViewBuilder);
+1st Output ===> locaViewBuilder: [object Object]
+2nd Output ===> locaViewBuilder: [object Object],[object Object]
+
+console.log("locaViewBuilder: " + JSON.stringify(localViewBuilder));
+1st Output ===> locaViewBuilder: 
+[
+{"id":"P-d1",
+  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+}
+]
+
+2nd Output ===> locaViewBuilder: 
+[
+{"id":"P-d1",
+  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+},
+{"id":"P-d2",
+  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+}
+]
+  
+
+  
+  -----------------------------------------
+	
+
+LINE 2
+
+1st Output ===> 
+
+[ProductDisplay]
+0: ProductDisplay {id: "P-d1", menuItem: Burger}
+length: 1
+__proto__: Array(0)
+
+2nd Output ===>
+
+(2) [ProductDisplay, ProductDisplay]
+0: ProductDisplay {id: "P-d1", menuItem: Burger}
+1: ProductDisplay {id: "P-d2", menuItem: Burger}
+length: 2
+__proto__: Array(0)
+
+*********************************************************************************************************************************
+
+console.log("this.guestOrder.orderItems: " + this.guestOrder.orderItems);
+1st Output ===> this.guestOrder.orderItems: [object Object] 
+2nd Output ===> this.guestOrder.orderItems: [object Object],[object Object]	
+		
+console.log("this.guestOrder.orderItems: " + JSON.stringify(this.guestOrder.orderItems));
+1st Output ===> this.guestOrder.orderItems: 
+[
+{"id":"P-d1",
+  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+}
+]
+
+2nd Output ===> this.guestOrder.orderItems: 
+[
+{"id":"P-d1",
+  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+},
+{"id":"P-d2",
+  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+}
+]
+
+-------------------------------------------
+
+LINE 3
+console.log(this.guestOrder.orderId);
+1st Output ===> 1
+2nd Output ===> 2
+
+***************************************************************************************************************************************
+
+console.log("This guest has placed " + this.guestOrder.orderId + " orders");
+1st Output: ===> This guest has placed 1 orders
+2nd Output: ===> This guest has placed 2 orders
+
+--------------------------------------------
+	
+LINE 4	//Here is where the error is occurring. I am getting contradictory information here
+
+console.log(tempDB.arrDB);
+1st Output ===> []
+					0: Array(1)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						length: 1
+						__proto__: Array(0)
+					length: 1
+					__proto__: Array(0)
+2nd Output ===> [Array(2)]
+					0: Array(2)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						1: ProductDisplay {id: "P-d2", menuItem: Burger}
+						length: 2
+						__proto__: Array(0)
+					1: Array(2)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						1: ProductDisplay {id: "P-d2", menuItem: Burger}
+						length: 2
+						__proto__: Array(0)
+					length: 2
+					__proto__: Array(0)
+
+***********************************************************************************************************************************************************
+
+console.log("In the tempDB.arrDB: " + tempDB.arrDB);
+1st Output ===> In the tempDB.arrDB: 		<=== This blank space is apparently not empty, it is hiding the array from console.log(tempDB.arrDB)
+2nd Output ===> In the tempDB.arrDB: [object Object],[object Object]
+
+console.log("In the tempDB.arrDB: " + JSON.stringify(tempDB.arrDB));
+1st Output ===> In the tempDB.arrDB: []
+2nd Output ===> In the tempDB.arrDB: [
+										[
+										{"id":"P-d1",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										},
+									    {"id":"P-d2",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										}
+										]
+									 ]
+
+-----------------------------------------------------------------------------------------------
+	
+LINE 5
+
+
+
+After we call this: 
+  tempDB.growDB(this.guestOrder.orderItems);
+
+we enter the growDB() method where this is called:
+
+console.log(this.arrDB)
+1st Output ===> [Array(1)]
+					0: Array(1)
+						0: ProductDisplay
+							id: "P-d1"
+							menuItem: Burger {name: "Burger", price: 3.89, temperature: "", cheese: false, tomato: false, …}
+							__proto__: Object
+						length: 1
+						__proto__: Array(0)
+					length: 1
+					__proto__: Array(0)
+
+
+2nd Output ===> (2) [Array(2), Array(2)]
+					0: Array(2)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						1: ProductDisplay {id: "P-d2", menuItem: Burger}
+						length: 2
+						__proto__: Array(0)
+					1: Array(2)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						1: ProductDisplay {id: "P-d2", menuItem: Burger}
+						length: 2
+						__proto__: Array(0)
+					length: 2
+					__proto__: Array(0)
+
+*****************************************************************************************************************
+
+console.log("this.arrDB: " + this.arrDB);
+1st Output ===> this.arrDB: [object Object]
+2nd Output ===> this.arrDB: [object Object],[object Object],[object Object],[object Object]	
+
+console.log("this.arrDB: " + JSON.stringify(this.arrDB));
+1st Output ===> this.arrDB: [
+								[
+								{"id":"P-d1",
+								  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+								}
+								]
+							]
+
+2nd Output ===> this.arrDB: [		//Here is the first appearance of a 2D array. I would expect it to say 
+								[
+								{"id":"P-d1",
+								  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+								},
+								{"id":"P-d2",
+								  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+								}
+								],
+								[
+								{"id":"P-d1",
+								  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+							    },
+								{"id":"P-d2",
+								  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+								}
+								]
+							]
+
+------------------------------------------------------------------------------------------------------------------------
+
+LINE 6
+
+console.log(tempDB.arrDB);
+1st Output ===> [Array(1)]
+					0: Array(1)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						length: 1
+						__proto__: Array(0)
+					length: 1
+					__proto__: Array(0)
+					
+2nd Output ===> 2) [Array(2), Array(2)]
+					0: Array(2)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						1: ProductDisplay {id: "P-d2", menuItem: Burger}
+						length: 2
+						__proto__: Array(0)
+					1: Array(2)
+						0: ProductDisplay {id: "P-d1", menuItem: Burger}
+						1: ProductDisplay {id: "P-d2", menuItem: Burger}
+						length: 2
+						__proto__: Array(0)
+					length: 2
+					__proto__: Array(0)
+
+***********************************************************************************************************************
+
+console.log("In the tempDB.arrBD: " + tempDB.arrDB);
+1st Output ===> In the tempDB.arrBD: [object Object]
+2nd Output ===> In the tempDB.arrBD: [object Object],[object Object],[object Object],[object Object]
+
+
+1st Output ===> In the tempDB.arrBD: [
+										[
+										{"id":"P-d1",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										}
+										]
+									 ]
+
+2nd Output ===> In the tempDB.arrBD: [
+										[
+										{"id":"P-d1",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										},
+										{"id":"P-d2",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										}
+										],
+										[
+										{"id":"P-d1",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										},
+										{"id":"P-d2",
+										  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+										}
+										]
+									 ]
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+LINE 7
+
+1st Output ===>
+2nd Output ===>
+
+console.log("this.guestOrder.orderItems: " + this.guestOrder.orderItems);
+1st Output ===> this.guestOrder.orderItems: [object Object]
+2nd Output ===> this.guestOrder.orderItems: [object Object],[object Object]
+
+console.log("this.guestOrder.orderItems: " + JSON.stringify(this.guestOrder.orderItems));
+1st Output ===> this.guestOrder.orderItems: [
+											{"id":"P-d1",
+											  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+											}
+											]
+											
+2nd Output ===> this.guestOrder.orderItems: [
+											{"id":"P-d1",
+											  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+											},
+											{"id":"P-d2",
+											  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+											}
+											]
+
+-------------------------------------------------------------------------------------------------------------------------------	
+
+LINE 8
+
+1st Output ===>
+2nd Output ===>	
+
+console.log("In the viewBuilder: " + productBox.viewBuilder);
+1st Output ===> In the viewBuilder: [object Object]
+2nd Output ===> In the viewBuilder: [object Object],[object Object]
+
+
+1st Output ===> In the viewBuilder: [
+									{"id":"P-d1",
+									  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+									}
+									]
+									
+2nd Output ===> In the viewBuilder: [
+									{"id":"P-d1",
+									  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+									},
+									{"id":"P-d2",
+									  "menuItem":{"name":"Burger","price":3.89,"temperature":"","cheese":false,"tomato":false,"lettuce":false,"onion":false,"ketchup":false,"mustard":false,"mayo":false,"bacon":false,"pickle":false}
+									}
+									]
+
+
+1st Output ===>
+2nd Output ===>
+
+
+1st Output ===>
+2nd Output ===>
+	
+	
+1st Output ===>
+2nd Output ===>
+
+
+1st Output ===>
+2nd Output ===>
+
+
+1st Output ===>
+2nd Output ===>
+
+
+1st Output ===>
+2nd Output ===>
+	
+
+--------------------------------------------------------------------------------------------------------------------
+
+August 27, 2019
+
+I learned that the console may provide values for variables later, even though those values should be empty at the exact line in the code. The console will assume that you would like to know what value eventually gets filled in. Why? I don't know... 
+
+So if you want to know what the exact state of an object is the moment you console.log the object, use JSON.stringify()
+
+ex.
+
+For some reason the console kept telling me tempDB.arrBD was assigned a value in a place in the code that is not possible.
+I learned that the console will sometimes assign the value the variable becomes by the end of the function. When it does this it will alert you in the console with a small i symbol beside the return value. 
+
+The solution to finding out exactly what the value of the variable was is to use JSON.stringify on the object and console.log this value
+
+ex.
+console.log(JSON.stringify(tempDB.arrBD));
+//output: []
+
+This let me know that the "database" (my array, arrBD) is empty in the first pass of the createOrder() method, contrary to the confusing feedback from the console when running this statement, which told me it had already been populated 
+
+**************************************************************************
+
+Learning the "database" is empty is important, because it gives me a correct value for the start of the solution to 
+the 
+
+"Multiplying productDisplays"
+
+Why? Because either in the first pass, 0 displays initialized increased to 4 displays initialized, 
+
+or 
+
+1 displays initialized increased to  4 displays initialized
+
+These are completely different problems, and the sequences 0 to 4 vs 1 to 4 implies different types of logic to iterate through, and different errors I may have made
+
+*******************************************************************************
+
+By clearing the viewBuilder I was able to get clearer output from the console as to what is being sent:
+
+Line 97: what the "database" starts with
+Line 8: what the value of the "database" is inside the method
+Line 100: the output of the method
+
+I can see that I am adding each product display to the inside of an array. This was not my intention. I wanted the whole order gathered, and then sent to the array
+
+ex. not: Order 1
+
+[["eyes"],["green"],["brown"]]
+
+but: Order 1
+
+["eyes","green","brown"]
+
+Also that weird thing the console does extends all the way out to arrays and their number of elements too. Don't trust the console, it lies to you about a lot it seems
+
+**************************************************************************************************************
+
+My Windows update brought back my touch screen, which is funny because I found out by touching the screen, simulating the user experience of the app. I wasn't expecting it to work, but it did. Useful in the construction of the app.
+
+********************************************************************************
+
+Realized that with each click of a seat number in the seat's component, the userLog being displayed must be replaced with the userLog instance for the new seat.
+
+***********************************
+Q. 
+
+1. what does __proto__ do?
+
+********************************************************************************
+
+-----------------------------------------------------------------------------------------------------------
+
+August 28, 2019
+
+Found this snippet of code, wondering if it could be useful for my present situation
+
+It loads a collection of objects as elements in an array. Could I load each item ordered like this? 
+
+My items should be productDisplay instances(at least I think), and I would like to load a collection of them into an array.
+When the user presses the Send Order button, then the 
+
+class Log {
+  constructor(...args) {
+    console.log(args)
+  }
+}
+new Log('a', 'b', 'c')
+// <- ['a' 'b' 'c']
+
+***************************************************************************************************
+
+So to create the order arrays the createOrder() method has to be called from the switch statement, which means one of the switch options has to be to "send the order". If the user is selecting elements in the switch, then it is just loading up the currentOrder array. I must remove the breaks and keep the user in the switch loop, until they decide to send the order. By then the currentOrder array will have been filled with all the items in the order. 
+
+To pull this off, the Send Order button must remain hidden until the user starts to add elements to the currentOrder array.
+Either that or we will create the element and append it to the DOM.
+
+---------------------------------------------------------------------------------------------------------------------------
+August 29, 2019
+
+Going to complete a walk-through of the code using the debugger. I would like to know:
+- if there is more than one <button> created and layered on each other. 
+- what is leading to the "incrementing array problem"
+
+*********************************************************************************************************************
+
+this.currentOrder gets its state from being an Order object instance. So when localViewBuilder is updated, this.currentOrder is updated also
+
+********************************************************************************************************************
+
+So while running a debugger statement in the createOrder() method, I found the first major bug in my program. The code for OrderDB is doing something unexpected with the "this" keyword.
+
+"this" in the constructor of the class AND in the growDB method both reference the Products class and instance, not a OrderDB instance like you might expect.
+
+also when the debugger is running none of my methods in the Products instance are recognized as methods.
+
+I tried shuffling the order of the <script> tags, but I don't think that is the problem.
+
+also, the doubling is absolutely currently occuring when the .push() method is executed.
+
+I think none of the methods are recognized because the instance of Product, productBox, is created in the wrong places,
+and the createOrder() method is called inside an innerHTML statement. 
+1. in the bottom of the Products file
+2. inside an innerHTML statement
+
+---------------------------------------------------------------------------------------------------------------------------
+August 30, 2019
+
+Running the program from the start of the passDataToUserLog() method through a second cycle of the passDataToUserLog() method seems to work up to 
+
+line 59
+
+so far. By working I mean having the expected output, which is an array with two productDisplay instances. On the next step of the debugger the 
+
+
+Why?
+
+*************************************************************************************************************************
+
+August 31, 2019
+
+
+Array.prototype.concat()
+-combines arrays into one array
+
+could be useful when generating one Order instance, since each ProductDisplay instance is wrapped in an array object
+
+**************************************************************************************************************************
+
+So the application is beginning to break. This is a good thing. The state has grown in complexity and I have learned more about JavaScript and its usage. I need to rebuild this thing for two timespans: short and long term
+
+  1. short term 
+      -create the "band-aid" solution for the createOrder() method call and the "incrementing array" problem
+      -start creating the HTML for the Seats component
+      -break the Product method into a collection of smaller methods
+      -fix the rendering of the Send Order button so that it appears because the hidden flag has been modified
+
+  2. long term
+      -correctly nest the scripts for the objects that will store the UserLog and Product instances, such as the Seats, Check, and Table classes. 
+
+
+***************************************************************************************************************************
+Using breakpoints:
+
+Besides the use of the debugger statement, I also can use breakpoints in the Chrome console.
+
+When in the console, open Sources
+-Click on a line number of code in a method call you would like to inspect
+-instigate the action that will call the method
+
+You will enter the debugger
+
+************************************************************************************************************************
+
+We have decided to compromise with the generation of the 2D array. It is unnecessary, as we can grab each order by the orderId associated with it, and not it's position in a 2D array.
+
+We will have to assign the value of this.currentOrder to an array each time we click, then add the array to an array when we send the order(thus the 2D array gets created)
+
+We will later add the 2D matrix storage of the items
+
+The current set up generates a unique id for each order, and has the correct total amount of items in one array. it is not segmented into a 2d array like i want. 
+
+Also I don't have access to the old order instances. I need to save them, which was another reason I want the 2D array format. Each array within the array would be a record of the individual orders made by the user over time
+
+Finally, at the moment that the user hits the Send Order button, I intend to remove the user's access to the userLog anyway. They will see a thank you message and an order number for their records. So the application is basically doing what
+it needs to. I do not need a perfect algorithm, I need a working algorithm
+
+*********************************************************************************************************************
+
+So what do I need in the seat class?
+
+Set up an onclick event listener for each seat
+-when the click occurs the User Log view should change to show the log of the currently selected seat
+
+************************************************************************************************************
+
+A user is someone who
+-has a seat at the table
+-places orders
+
+---------------------------------------------------------------------------------------------------------------------------
+
+September 1, 2019
+
+These need to be added to the UI after the user(s) enter their table information
+
+Menu
+Products
+UserLog
+Seats
+
+To start, we need to create an instance of a Table object. The Table object(at least initially) is behind the scenes. It is a logical object without representation in the DOM. The Table instance can have:
+
+-a state of occupied or unoccupied
+-any number of Seat, Check, and UserLog instances
+
+***************************************************************************************************************************
+I can develop anything I need in the index.html file in terms of DOM nodes. Don't worry about their permanent position or context for now. The key is realizing that certain nodes will be visible or invisible based on the choices of the app's user. Use the index.html file as a playpen to see how the different sections of your application will look and feel.
+
+**************************************************************************************************************
+
+I added the concept of a Party, since I wanted Seat to be the base class of the user. The Seat instance is the user's defined space, and a collection of users(or a collection of Seat instances) is a Party
+
+There is a subtle difference between Party and Check. Initially I thought we could group seats by checks, but now I know I will want the additional flexibility(and complexity) that grouping Tables into Parties, then into Checks, will afford me.
+
+********************************************************************************************************************
+
+So start using the main file to script the testing of your components. 
+
+Create a Table with all parts filled in the main.js file
+
+---------------------------------------------------------------------------------------------------------------------------
+
+September 2, 2019
+
+The Party class will not be an array. There will only be one party allowed per table. One party may have numerous checks.
+
+It appears that once again I need to figure out how to have the UserLog instance present the calculated data.
+
+***************************************************************************************************************************
+
+Realized I would like to create a GUI aspect to this application also. The restaurant owner should be able to drag and drop shapes onto a canvas to model the layout of his establishment. He should then be able to click on the layout and get the information on the tables that have been started by his customers.
+
+The customers would never have access to this map, they don't need it to create seats. The seats would always map to the correct table. The GUI would help the admin user quickly track what is happening with each table in real-time.
+
+Layout Creator 
+The Layout Creator will create shapes that can be merged, stretched, resized, etc... and merged together to create layouts that model the restaurant of the program user. They will then be able to drag and drop table icons, seat icons, etc... until the layout of the restaurant is created. Next they will begin the process of menu generation, table generation, etc...
+
+Q.
+Without the Layout Creator, what makes this an application for restaurants? 
+
+A. 
+Nothing.
+You need the Layout Creator to be special, to stand out from all the other simple calculators out there. 
+
+***************************************************************************************************************************
+
+I need to go through the application again to figure out what it is doing
+I got more done than I expected, and I don't really know where the program's original test code is overlapping with these objects I have created and modified. I need to think about the names of the classes, properties, and methods and see if they make sense or are contradicting the logic of the program. I need to trace where the information is flowing and why. 
+
+I also need to put my functionality in the main() file like I intended
+
+*****************************************************************************************************
+
+Just as I realized that the Seat class was more than a seat, but the cockpit for the app's user, I realized that the Table class and it's instances is more than just a Table. 
+
+If this application is to serve it's purpose, it will be a hub whereby multiple handheld devices will communicate. Each device will be representing one table. The Table class is defining a class that could potentially represent each IP address-owning device to the server. Each Table instance, when created, would broadcast it's existence to the server program and the associated database when required(caching?).
+
+I thought of this after I realized that the Table instances would have a representation in some form of GUI for the program, one that would create a layout of the restaurant's floor. Once I realized I had created a Table class, an independent object, I realized it needed to be represented in it's environment if it's data was to be most effectively used. That's when I realized why an instance of a Table was more than just a table. Envisioning the layout of the GUI, and how it would let the user create their floorplan on a terminal, I realized the table icons I saw with my mind's eye represented a "smart table". It would be a table with an IP address, whether wireless capability was built into the table or was from a wireless tablet or phone.
+
+I had just asked myself when I would be close to having to start thinking in terms of the full stack. I think that time is close. I am going to have to find a way to transfer this to a server and test out the network. I can't just test it virtually, which is a whole different problem, btw.
+
+---------------------------------------------------------------------------------------------------------------------------
+September 3, 2019
+
+So our tasks for tonight:
+-identify the location where the userLog view is currently getting it's data(what Order instance and how?)
+-connect the old Products code to the new Table class design  
+-move the methods from the Products class to the Seat class
+-push the data into the UserLog for final presentation
+-have the UserLog instance present the data
+
+***********************************************************************************************************************
+
+Remember this line?...
+
+this.currentOrder = new Order(index, localViewBuilder);
+
+It created a new Order instance in the createOrder method.
+Now that we have created the Table class, we can pass the code in this.currentOrder to the location we would like to pass it in the application:
+
+table0.seatArray[0][0].orderArray[0] = this.currentOrder;
+
+So the createOrder() method will be modified depending on where it goes (Seat class still?) to pass the Order instance value wherever required. Eventually the value should make it's way to the UserLog, which should render the value
+
+The question now becomes: Am I making spaghetti code? Should I be calling the table instance in the other .js files? I think I should, if the Table class is tying everything together in the code, leading up to sending data out on a network. 
+
+It seems like the Table object is the view displayed by the handheld device once the guests have arrived and entered their initial parameters into the system. They enter the Table view:
+
+A Table comes with:
+-menus
+-a display of products inside the menus, complete with prices and options
+-seats for the users
+-a check for the table or for individual users
+-a log for each individual guest at the table
+
+So far a Table instance has 3 roles it can be defined as:
+-the code used to control the view that the guest sees in the index.html file in the display <div>
+-the GUI object/icon that will be in the Layout Creator and represents a table
+-the TCP/IP network node that will connect wirelessly and send the user's requests and receive the server's responses
+
+---------------------------------------------------------------------------------------------------------------------------
+
+September 4, 2019
+
+Going to start Udemy Maxmillian Node.js tutorial, along with Node.js In Action, 2nd Edition, which I can only read online for some odd reason. It won't display in Adobe Reader.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+September 24, 2019
+
+For the past three weeks I have been digging into Node.js. I learned that Node.js is not about a server, it is a runtime environment for the JavaScript language out of the browser. 
+
+I imagine the JS developer will be asked to expand their reportoire of tricks they can perform on a daily basis. 
+
+******************************************************************************************************************
+
+I was correct about the need to learn how to serve the application. The application only works if the information for the state comes from a centralized position. The amount of users should be able to scale up dramatically and not cause the application to fail. The application has to present ACID data that is accurate. It also needs to be secure and handle user administration, authentication, and authorization. All of this is best handled by a server.
+
+I have watched Maxmillian's tutorial and built along with it. I see how Node.js works on a grand scale. We also reviewed how Pug, Handlebars, and Express present data with HTML and it's variations. I learned about Sequelize and how to attach it to a MySQL database. I still have only finished 30% according to Udemy.
+
+I don't really know how frequently I will be sending data over the network to update the state of the application. What is the wise choice? How will the application get it's state updated? I don't know if I will be doing things client-side with a dash of Node, or a big ole bowl of Node.js. 
+
+If I want the application to be a SPA however, it seems as though I must use some framework like Angular or React to pull the data over and update the view. Node.js is not created to mimic SPAs. Each route reloads the browser window. At least as far as I know to this point, about to look into it
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+September 25, 2019
+
+Realized I need to use Node.js as the runtime environment for the application. Currently up to now I had been using Live Server. 
+
+After completing 30% of Maximillian's Udemy course on Node.js I feel like I need to restart the application. Obviously the application is a full-stack app. My original and current intention is to use the MERN stack. 
+
+Tonight I intend of starting a review of React. It might be a bit of a stretch, but I believe I can build the application using React as the front-end and Node.js with Express and MongoDB on the backend. If that is the case I should start immediately.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+September 28, 2019
+
+Correct to switch to React. I can see how the concept of components will work, and my issues with passing state values to the UserLog would be managed by the React virtual DOM.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+October 18, 2019
+
+Completed 25% of Maximillian tutorial on React. I see that I understand the power of React, now that I started to create the application using vanilla JS. React is the perfect vehicle.
+
+I also started reading Secrets of the JavaScript Ninja. Very informative. It summarizes the topics of JS succinctly and shows how the language is truly functional in nature. 
+
+I think the correct thing to do at this point is to return to creating the application. My questions have been answered:
+1. How the application might use the "R" versus the "N" in the MERN stack to store state
+2. What the "E" in the stack is used for (routing and views)
+
+To create the application, my plan is to mimic Max when he creates the "Burger Builder", implementing his techniques for managing state in React
+
+As I currently envision it, the Node server will send the JS/React code to the network device's browser when the proper query is sent. The code will create a thick client, capable of calculations and maintaining state. The state shall be sent back to the server at appropriate times and stored in the "M" server
+
+****************************************************************************************
+
+Using Node I can use npm and its huge collection of libraries. One of those libraries is React
+
+---------------------------------------------------------------------------------------------------------------------
+
+October 20, 2019
+
+Starting the application in React. This is not a copy/paste operation. Following Max's React tutorial and figuring out ways in which I can implement his development process. 
+
+I am currently reviewing the information in video 154.
+
+Task(s) for tomorrow: 
+
+1. Figure out what my current JS objects will be: containers or components? Will they contain state or not?
+
+Seats - container 
+Header - component
+Menu - container
+Products - container
+UserLog - component
+
+2. Commit my application to github
+
+------------------------------------------------------------------------------------------------------------------------
+
+Oct 21, 2019
+
+1. To use the instances of the classes in other files in the JS version, I needed to have the script of the object declared in the html file BEFORE the file that uses the class's instance
+
+ex. 
+
+    <script src="menu.js"></script>
+    <script src="order.js"></script>
+    <script src="orderDB.js"></script>
+    <script src="userlog.js"></script>
+    <script src="calculator.js"></script>
+    <script src="products.js"></script>
+    <script src="seat.js"></script>
+    <script src="check.js"></script>
+    <script src="party.js"></script>
+    <script src="index.js"></script>
+    <script src="table.js"></script>
+    <script src="main.js"></script>
+
+  In the React app, that is NOT how the programmer accesses classes and their instances from outside files. 
+  
+  I need to declare the file as an import.
+
+ex.
+
+import Layout from "./components/Layout/Layout";
+import Table from "./containers/Table/Table";
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Layout>
+          <Table></Table>
+        </Layout>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+2. Some of the HTML that I already have in the JS version will be used in the individual .js files as JSX
+3. Some of the CSS that I already have in the JS version will be used in the individual .css files for the components
+4. There is a main.js file in the JS version that holds the following code: 
+
+function main() {
+  // let table0 = new Table(1, [], [], [], [], []);
+  // let userLog1 = new UserLog(1, 1, 1, 1);
+  // let userLog2 = new UserLog(2, 1, 2, 1);
+  // let userLog3 = new UserLog(3, 1, 3, 1);
+  // let userLog4 = new UserLog(4, 1, 4, 1);
+  // let seat1 = new Seat();
+  // let seat2 = new Seat();
+  // let seat3 = new Seat();
+  // let seat4 = new Seat();
+  console.log(table0);
+}
+
+main();
+
+Not sure what I was trying to do here...
+
+5. Need to review how to create the two types of components in React (class-based and functional)
+6. Create the components and their relationships (parent to child) 
+7. Create state and props in the components where appropriate
+8. The CSS code in the index.css file from the JS version may belong to the table.css file in the React version (not sure yet) or the layout.css file
+
+What I accomplished
+  -created class-based components for each of the sections of the JS version( seats, menu, header, userlog, products)
+  -placed the elements for each component in the <Table> element
+
+----------------------------------------------------------------------------------------------------------------------
+
+October 22, 2019
+
+Summary of 10/21/19
+Realized starting off with the BurgerBuilder was too complex. I went back to the beginning of the course and started to build. Created components for each of my JS version's .js classes. 
+
+*****************************************************************************************************************
+
+Today I created the git repository for the React version:
+https://github.com/wfparrish/restaurant-appReact
+
+**************************************************************************************************************
+
+Thinking about the app and how to convert it to React, I realized in the original version of the app I had a structure made of HTML and CSS to play with pre/without JS. I built the app and then I applied JS. That approach isn't really what React is about, as the .html file plays a different role in a React application, and HTML, CSS, and JS are tightly coupled in React. Code and the UI go hand in hand. 
+
+I need to learn how to use CSS Flexbox and Grid when writing React applications
+https://roylee0704.github.io/react-flexbox-grid/
+https://www.npmjs.com/package/react-flexbox-grid
+https://github.com/STRML/react-grid-layout
+
+This looks promising...
+https://blog.bitsrc.io/12-react-ui-layout-grid-components-and-libraries-for-2019-16e8aa5d0b08
+
+------------------------------------------------------------------------------------------------------------------------
+
+Oct 23, 2019
+
+Realized that React components are nothing special; they are just JS classes that use a special library
+
+class myComponent extends Component {
+
+  //any logic I want in my code goes here like any other JS class. You could have: 
+
+  myFunction1() {}
+  myFunction2() {}
+  etc... 
+
+  but you are required to have the render method return something
+
+  render() {  //a single required method that returns something, usually JSX
+    return (  //JSX is usually what gets returned here. The return statement belongs to the render method
+      ...
+    )
+  }
+}
+
+****************************************************************************************
+
+So what would I like to do? I would like to start to connect the application. Create state in the components and pass props.
+
+****************************************************************************************
+
+For the classes that get converted into functional components, I think the way to create an instance object
+is to use:
+
+return this
+
+'this' referring to the instance of the object that will exist once the new keyword is used by the constructor function
+
+ex.
+
+const burger = () => {
+  this.name = "Burger";
+  this.price = 3.89;
+  this.temperature = "";
+  this.cheese = false;
+  this.tomato = false;
+  this.lettuce = false;
+  this.onion = false;
+  this.ketchup = false;
+  this.mustard = false;
+  this.mayo = false;
+  this.bacon = false;
+  this.pickle = false;
+  return this;
+};
+
+let burger1 = new Burger()
+
+I think this would generate a new burger1 object with defined properties. 
+I will figure out if this is the case.
+
+*************************************************************************************************
+
+MenuItems are connected to the ProductDisplay, not the Menu. Menu is going to be used to provide navigation between the 
+different collections of items, such as Sandwiches or Desserts. MenuItems are the model for the application, actual items that are added to the menu by the admin user and passed to the state (the M in MVC)
+
+***************************************************************************************************
+
+The original main reasons I stopped developing the vanilla JS app was because 
+1. managing application state was becoming a problem and I knew having multiple seats instances would add to the issues
+2. the code in the Products class was becoming too brittle. I need to turn it all into multiple distinct functions, and I     knew those functions might wind up in different React components. 
+3. 
+
+
+
+
