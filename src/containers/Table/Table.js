@@ -22,6 +22,8 @@ class Table extends Component {
 
 export default Table;
 
+//-------------------------------------------------------------------------------
+
 // class Table {
 //   constructor(tableId, party, seatArray, checkArray, orderArray, userLogArray) {
 //     this.tableId = tableId;
