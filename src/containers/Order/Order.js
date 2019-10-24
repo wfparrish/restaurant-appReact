@@ -15,6 +15,8 @@ const order = (orderId, orderItems) => {
   return this;
 };
 
+export default order;
+
 //---------------------------------------------
 
 // //Current script for the application: Order creation testing
@@ -29,7 +31,7 @@ const order = (orderId, orderItems) => {
 
 // //initial message in UserLog created with variable values(zeroth Order)
 // let initialVals = [chix0, sides0, drink0];
-// let order0 = new Order(0, initialVals);
+// let order0 = new order(0, initialVals);
 
 // //Order objects created with an id and orderTally array. Imagine they are randomly generated orders used to test functionality of the application
 
