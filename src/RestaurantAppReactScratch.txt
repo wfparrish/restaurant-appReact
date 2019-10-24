@@ -2296,6 +2296,17 @@ different collections of items, such as Sandwiches or Desserts. MenuItems are th
 
 ***************************************************************************************************
 
+Two new uses of the return statement: 
+
+return null 
+-used in React with components that are not intended to display anything to the user
+-useful when the business logic needs to change the state of the application
+
+return this
+-used when creating instances of the class/function that can also return themselves
+
+***************************************************************************************************
+
 The original main reasons I stopped developing the vanilla JS app was because 
 1. managing application state was becoming a problem and I knew having multiple seats instances would add to the issues
 2. the code in the Products class was becoming too brittle. I need to turn it all into multiple distinct functions, and I     knew those functions might wind up in different React components. 
