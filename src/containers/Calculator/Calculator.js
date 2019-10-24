@@ -1,16 +1,31 @@
-class Calculator {
-  constructor() {
-    this.total = 0;
-  }
+const calculator = () => {
+  this.total = 0;
 
-  addition(item) {
+  function addition(item) {
     return (this.total = this.total + item.price);
   }
-  subtraction(item) {
+  function subtraction(item) {
     return (this.total = this.total - item.price);
   }
   // static multiplication() {}
   // static division() {}
-}
+};
 
-export default Calculator;
+export default calculator;
+
+//------------------------------------------------------------------------------
+
+// class Calculator {
+//   constructor() {
+//     this.total = 0;
+//   }
+
+//   addition(item) {
+//     return (this.total = this.total + item.price);
+//   }
+//   subtraction(item) {
+//     return (this.total = this.total - item.price);
+//   }
+//   // static multiplication() {}
+//   // static division() {}
+// }
