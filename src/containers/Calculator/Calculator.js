@@ -9,6 +9,7 @@ const calculator = () => {
   }
   // static multiplication() {}
   // static division() {}
+  return this;
 };
 
 export default calculator;
