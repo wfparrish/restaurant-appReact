@@ -2312,6 +2312,24 @@ The original main reasons I stopped developing the vanilla JS app was because
 2. the code in the Products class was becoming too brittle. I need to turn it all into multiple distinct functions, and I     knew those functions might wind up in different React components. 
 3. 
 
+-------------------------------------------------------------------------------------------------------------------------
+
+Oct 24, 2019
+
+Tasks to accomplish:
+1. Work on the state/props management of the application
+-attempt to organize the materials you have, passing data through the "React way"
+
+2. Correct the CSS so that the Table view renders correctly
+
+***************************************************************************************************
+
+Importing the UserLog into React reminded me of one of my original problems: how to statelessly render the data into
+a UserLog view. I didn't know what component should send the information to the view.
+
+**************************************************************************************************
+
+Created useful diagrams that describe the entity relationships in the application. The state will follow the logic in the diagrams. 
 
 
 
