@@ -2341,5 +2341,6 @@ https://www.robinwieruch.de/react-function-component
 
 ************************************************************************************************************************
 
+In order to understand my code again, I was thinking about stepping through using the debugger. Might be the quickest way to get back in touch with how I am passing data.
 
 
