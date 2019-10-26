@@ -2331,5 +2331,15 @@ a UserLog view. I didn't know what component should send the information to the 
 
 Created useful diagrams that describe the entity relationships in the application. The state will follow the logic in the diagrams. 
 
+--------------------------------------------------------------------------------------------------------------------
+
+Oct 25, 2019
+
+Noticed that functional components did not seem to have a render() method. That insight was correct. They do not have a render() method that they need to call, and they can return JSX using their return statement. This line of enquiry led to the following website:
+
+https://www.robinwieruch.de/react-function-component
+
+************************************************************************************************************************
+
 
 
