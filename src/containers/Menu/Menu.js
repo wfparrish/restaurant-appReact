@@ -5,14 +5,14 @@ class Menu extends Component {
   render() {
     return (
       <Auxiliary>
-        <div class='section2'>
-          <div>menus</div>
-          <div class='menu-displays'>m-d1</div>
-          <div class='menu-displays'>m-d2</div>
-          <div class='menu-displays'>m-d3</div>
-          <div class='menu-displays'>m-d4</div>
-          <div class='menu-displays'>m-d5</div>
-          <div class='menu-displays'>m-d6</div>
+        <div className='section2'>
+          <div>Menus Section</div>
+          <div className='menu-displays'>m-d1</div>
+          <div className='menu-displays'>m-d2</div>
+          <div className='menu-displays'>m-d3</div>
+          <div className='menu-displays'>m-d4</div>
+          <div className='menu-displays'>m-d5</div>
+          <div className='menu-displays'>m-d6</div>
         </div>{" "}
       </Auxiliary>
     );

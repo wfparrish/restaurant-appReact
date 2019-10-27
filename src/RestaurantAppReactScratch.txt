@@ -2399,3 +2399,47 @@ Controller - the server
 Model - the database
 
 ***************************************************************************************************************************
+
+I converted JS classes to React functional components, and used <UserLog> to render data from <Order>
+
+***************************************************************************************************************************
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Create the complete solution for the restaurant industry. For use by servers or on-table. The admin should be able to 
+switch between the two views with a click of a button, even on currently running tables, and change the UI to reflect the 
+newly selected view. Allows a small establishment to control whether the guest should be their own server based or if they should provide table service. Having the ability to select between these options in real-time could immediately impact the bottom line of lots of small restaurants
+
+Includes the LayoutCreator
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+**************************************************************************************************************************
+
+A class component can use props too. You need to use the 'this' keyword with props keyword
+
+If you have a Parent class that renders a Person component:
+
+render() {
+  return (
+    <Person myName="William" />
+  )
+}
+
+then the return statement in the child class can use the props passed to the Person component in the parent class
+
+ return <div>
+              <p>
+                {this.props.myName}
+              </p>
+            </div>
+
+***************************************************************************************************************
+
+I created a Seat component that receives it's state from a Seats component. Right now the seats that are rendered in the 
+view are rendered as components using the Seat component. 
+
+Next tasks:
+-Divide the Product class method into smaller bits that I put in the appropriate components
+-Fix the CSS of the page so that it shows correctly
+

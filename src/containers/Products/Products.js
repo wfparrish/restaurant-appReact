@@ -6,7 +6,7 @@ class Products extends Component {
     return (
       <Auxiliary>
         <div class='section3'>
-          <div>products</div>
+          <div>Products Section</div>
           <div class='product-displays'>
             p-d1
             <button

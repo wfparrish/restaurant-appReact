@@ -33,7 +33,6 @@ class Order extends Component {
   };
 
   myFirstReactBurger = this.state.menuItems[0];
-
   myFirstReactChicken = this.state.menuItems[1];
 
   //this.orderId = Order.incrementId();

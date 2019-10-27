@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import Auxiliary from "../../hoc/Auxiliary";
+import Seat from "./Seat/Seat";
 
 class Seats extends Component {
+  state = {
+    seatArray: [
+      { seatId: 1 },
+      { seatId: 2 },
+      { seatId: 3 },
+      { seatId: 4 },
+      { seatId: 5 }
+    ]
+  };
   render() {
     return (
       <Auxiliary>
         <div class='section4'>
-          <div>seats</div>
-          <div class='seat-displays'>Seat 1</div>
-          <div class='seat-displays'>Seat 2</div>
-          <div class='seat-displays'>Seat 3</div>
-          <div class='seat-displays'>Seat 4</div>
-          <div class='seat-displays'>Seat 5</div>
+          <div>Seats Section</div>
+          <Seat id={this.state.seatArray[0].seatId} />
+          <Seat id={this.state.seatArray[1].seatId} />
+          <Seat id={this.state.seatArray[2].seatId} />
+          <Seat id={this.state.seatArray[3].seatId} />
+          <Seat id={this.state.seatArray[4].seatId} />
         </div>{" "}
       </Auxiliary>
     );
