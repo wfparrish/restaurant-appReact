@@ -1,11 +1,7 @@
 import React from "react";
 
-const milkshake = () => {
-  this.name = "Milkshake";
-  this.price = 2.99;
-  this.size = ""; //make this an array
-  this.flavor = ""; //make this an array
-  return this;
+const milkshake = props => {
+  return <p>I'm a {props.name} Bite me!!!</p>;
 };
 
 export default milkshake;

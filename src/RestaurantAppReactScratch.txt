@@ -2343,4 +2343,59 @@ https://www.robinwieruch.de/react-function-component
 
 In order to understand my code again, I was thinking about stepping through using the debugger. Might be the quickest way to get back in touch with how I am passing data.
 
+------------------------------------------------------------------------------------
 
+Oct 26, 2019
+
+Wondering where my JS program "starts", I realized I didn't know. Everything seemed to be a connected web. 
+
+The question was, "where do I put the debugger statement in my code" to see everything run through at least once?
+
+I realized I could look at the collection of <script> tags, and it would really be a list of what .js files are run, and in what sequence. 
+
+This led me to the menu.js file, which actually is the M in MVC. 
+
+I think it is interesting that without the menu.js file being run first by the browser's compiler the rest of the application would break. There would be no data to pass and everything would be null or undefined
+
+*************************************************************************************************************************
+
+Oct 27, 2019
+
+This is the order that the script tags run in the vanilla JS version of the app:
+
+    <script src="menu.js"></script>
+    <script src="order.js"></script>
+    <script src="orderDB.js"></script>
+    <script src="userlog.js"></script>
+    <script src="calculator.js"></script>
+    <script src="products.js"></script>
+    <script src="seat.js"></script>
+    <script src="check.js"></script>
+    <script src="party.js"></script>
+    <script src="index.js"></script>
+    <script src="table.js"></script>
+    <script src="main.js"></script>
+
+I would like to start building in state and props by going down this list and seeing if I can create the appropriate relationships between the components
+
+*******************************************************************************************************************
+MVC and the MERN stack
+
+Finally realize what MVC stands for and is :
+
+M - Model
+This is up to the programmer and one of the core elements of OOP. The programmer describes the objects he wants to create using the syntax of the programming language of his choice. MongoDB is used in the MERN stack to maintain data and it's state.
+
+V - View
+This is the UI, created using whatever techniques the programmer chooses. React (the 'R' in MERN) is designed to be the 'V' in MVC
+
+C - Controller
+Handles requests and responses from the View, rendering the desired elements, AND manipulates the Model. A Node server using Express would be a good example
+
+You could also say:
+
+View - the client side code
+Controller - the server
+Model - the database
+
+***************************************************************************************************************************

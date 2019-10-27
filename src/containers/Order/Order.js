@@ -1,21 +1,78 @@
-import React from "react";
+import React, { Component } from "react";
+import Auxiliary from "../../hoc/Auxiliary";
+import "../MenuItems/Burger/Burger";
+import "../MenuItems/Fries/Fries";
+import "../MenuItems/Milkshake/Milkshake";
+import "../MenuItems/Chicken/Chicken";
+import "../MenuItems/Sides/Sides";
+import "../MenuItems/Drink/Drink";
 
-const order = (orderId, orderItems) => {
+class Order extends Component {
+  state = {
+    menuItems: [
+      {
+        name: "Burger",
+        price: 3.89,
+        temperature: "",
+        cheese: false,
+        tomato: false,
+        lettuce: false,
+        onion: false,
+        ketchup: false,
+        mustard: false,
+        mayo: false,
+        bacon: false,
+        pickle: false
+      },
+      { name: "Chix", price: 3.59, style: "" },
+      { name: "Drink", price: 1.75 },
+      { name: "Fries", price: 0.99, size: "" },
+      { name: "Milkshake", price: 2.99, size: "", flavor: "" },
+      { name: "Sides", price: 1.75 }
+    ]
+  };
+
+  myFirstReactBurger = this.state.menuItems[0];
+
+  myFirstReactChicken = this.state.menuItems[1];
+
   //this.orderId = Order.incrementId();
-  this.orderId = orderId;
-  this.orderItems = orderItems;
+  // orderId = orderId;
+  // orderItems = orderItems;
 
-  function incrementId() {
+  //**************************************************************************************************
+  // chix0 = new Chicken((this.price = 3.59));
+  // sides0 = new Sides((this.price = 1.75));
+  // drink0 = new Drink((this.price = 1.75));
+  // burger1 = new Burger((this.price = 3.89));
+  // fries1 = new Fries((this.price = 0.99));
+  // milkshake1 = new Milkshake((this.price = 2.99));
+
+  incrementId() {
     if (!this.latestId) this.latestId = 1;
     else this.latestId++;
     let orderId = this.latestId;
     return orderId;
   }
 
-  return this;
-};
+  render() {
+    return (
+      <Auxiliary>
+        <p>
+          {" "}
+          This muthafucking {this.myFirstReactBurger.name} costs{" "}
+          {this.myFirstReactBurger.price} Pay up ho!!!
+        </p>
+        <p>
+          And don't forget the {this.myFirstReactChicken.name} too. That shit
+          cost {this.myFirstReactChicken.price}
+        </p>
+      </Auxiliary>
+    );
+  }
+}
 
-export default order;
+export default Order;
 
 //---------------------------------------------
 

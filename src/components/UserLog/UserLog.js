@@ -7,7 +7,8 @@ class UserLog extends Component {
       <Auxiliary>
         <div id='logInfo' class='section5'>
           <div>user log</div>
-        </div>{" "}
+        </div>
+        {this.props.children}
       </Auxiliary>
     );
   }

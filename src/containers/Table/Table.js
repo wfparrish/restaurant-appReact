@@ -5,6 +5,7 @@ import Menu from "../../containers/Menu/Menu";
 import Products from "../../containers/Products/Products";
 import UserLog from "../../components/UserLog/UserLog";
 import Seats from "../../containers/Seats/Seats";
+import Order from "../../containers/Order/Order";
 
 class Table extends Component {
   render() {
@@ -13,7 +14,9 @@ class Table extends Component {
         <Header></Header>
         <Menu></Menu>
         <Products></Products>
-        <UserLog></UserLog>
+        <UserLog>
+          <Order></Order>
+        </UserLog>
         <Seats></Seats>
       </Auxiliary>
     );
