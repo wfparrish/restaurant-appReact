@@ -57,14 +57,14 @@ class Order extends Component {
   render() {
     return (
       <Auxiliary>
+        <p> We got some specials out this muthafucka!!!</p>
         <p>
-          {" "}
-          This muthafucking {this.myFirstReactBurger.name} costs{" "}
-          {this.myFirstReactBurger.price} Pay up ho!!!
+          {this.myFirstReactBurger.name} {"$"}
+          {this.myFirstReactBurger.price}
         </p>
         <p>
-          And don't forget the {this.myFirstReactChicken.name} too. That shit
-          cost {this.myFirstReactChicken.price}
+          {this.myFirstReactChicken.name} {"$"}
+          {this.myFirstReactChicken.price}
         </p>
       </Auxiliary>
     );

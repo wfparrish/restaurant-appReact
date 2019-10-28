@@ -7,8 +7,8 @@ class UserLog extends Component {
       <Auxiliary>
         <div id='logInfo' class='section5'>
           <div>User Log Section</div>
+          {this.props.children}
         </div>
-        {this.props.children}
       </Auxiliary>
     );
   }

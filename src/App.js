@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <Layout>
-          <Table class='display'></Table>
+          <Table></Table>
         </Layout>
       </div>
     );

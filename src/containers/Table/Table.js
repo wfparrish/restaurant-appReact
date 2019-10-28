@@ -6,18 +6,21 @@ import Products from "../../containers/Products/Products";
 import UserLog from "../../components/UserLog/UserLog";
 import Seats from "../../containers/Seats/Seats";
 import Order from "../../containers/Order/Order";
+import classes from "./Table.module.css";
 
 class Table extends Component {
   render() {
     return (
       <Auxiliary>
-        <Header></Header>
-        <Menu></Menu>
-        <Products></Products>
-        <UserLog>
-          <Order></Order>
-        </UserLog>
-        <Seats></Seats>
+        <div className={classes.Display}>
+          <Header></Header>
+          <Menu></Menu>
+          <Products></Products>
+          <UserLog>
+            <Order></Order>
+          </UserLog>
+          <Seats></Seats>
+        </div>
       </Auxiliary>
     );
   }

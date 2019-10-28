@@ -2443,3 +2443,7 @@ Next tasks:
 -Divide the Product class method into smaller bits that I put in the appropriate components
 -Fix the CSS of the page so that it shows correctly
 
+***************************************************************************************************************************
+
+Moved the CSS from the index.css file into a table.module.css file. Now the display renders as expected
+
